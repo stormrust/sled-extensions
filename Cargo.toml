@@ -1,0 +1,27 @@
+[package]
+name = "sled-extensions"
+description = "Wrappers around the Sled embedded database to permit storing structured data"
+version = "0.2.0"
+authors = ["asonix <asonix@asonix.dog>"]
+license-file = "LICENSE"
+readme = "README.md"
+repository = "https://git.asonix.dog/Aardwolf/sled-extensions"
+keywords = ["sled", "serde", "database"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bincode = { version = "1.1", optional = true }
+chrono = { version = "0.4", features = ["serde"] }
+log = "0.4"
+sled = "0.29"
+serde = "1.0"
+serde_cbor = { version = "0.10", optional = true }
+serde_derive = "1.0"
+serde_json = { version = "1.0", optional = true }
+
+[features]
+default = []
+json = ["serde_json"]
+cbor = ["serde_cbor"]
